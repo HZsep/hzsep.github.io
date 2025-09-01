@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hayes Zhao | AI Infrastructure & Systems</title>
+  <meta name="description" content="Hayes Zhao — Computer Engineer (M.S.) specializing in AI infrastructure, distributed systems, and compilers." />
+  <meta property="og:title" content="Hayes Zhao" />
+  <meta property="og:description" content="Computer Engineer & Researcher in AI infrastructure and distributed systems." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0ea5e9" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["Inter","ui-sans-serif","system-ui","-apple-system","Segoe UI","Roboto","Noto Sans","Helvetica Neue","Arial","sans-serif"]
+          },
+          boxShadow: { soft: "0 10px 30px -12px rgb(0 0 0 / 0.25)" }
+        }
+      },
+      darkMode: 'class'
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>html{scroll-behavior:smooth}.u-underline{box-shadow:inset 0 -0.5em 0 rgba(14,165,233,.25)}</style>
+</head>
+<body class="font-sans bg-white text-slate-800 dark:bg-slate-900 dark:text-slate-100">
+  <!-- Header -->
+  <header class="sticky top-0 z-40 backdrop-blur bg-white/70 dark:bg-slate-900/60 border-b border-slate-200/50 dark:border-slate-800/60">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex items-center justify-between h-16">
+        <a href="#" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-2xl bg-sky-500 text-white grid place-items-center shadow-soft group-hover:scale-105 transition"><span class="font-bold">HZ</span></div>
+          <div class="leading-tight">
+            <div class="font-semibold">Hayes Zhao</div>
+            <div class="text-xs text-slate-500 dark:text-slate-400">AI Infra • Systems ML</div>
+          </div>
+        </a>
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="#about" class="hover:text-sky-600">About</a>
+          <a href="#experience" class="hover:text-sky-600">Experience</a>
+          <a href="#projects" class="hover:text-sky-600">Projects</a>
+          <a href="#publications" class="hover:text-sky-600">Publications</a>
+          <a href="#contact" class="hover:text-sky-600">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative">
+    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-sky-50 to-transparent dark:from-sky-900/10"></div>
+    <div class="max-w-6xl mx-auto px-4 py-16 lg:py-24 grid lg:grid-cols-2 gap-10 items-center">
+      <div>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight">
+          Building scalable <span class="u-underline">AI infrastructure</span><br class="hidden sm:block"/> for real‑world performance
+        </h1>
+        <p class="mt-5 text-slate-600 dark:text-slate-300 text-base sm:text-lg max-w-xl">
+          I’m <strong>Hayes Zhao</strong>, a Computer Engineer (M.S., George Washington University) with a proven record in accelerating distributed systems, optimizing heterogeneous multi‑accelerator workloads, and publishing research in IEEE CAL.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="#experience" class="px-4 py-2 rounded-xl bg-sky-600 text-white hover:bg-sky-700 shadow-soft">Experience</a>
+          <a href="https://www.linkedin.com/in/hayes-zhao" target="_blank" class="px-4 py-2 rounded-xl border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800">LinkedIn</a>
+          <a href="resume_HZ.pdf" target="_blank" class="px-4 py-2 rounded-xl border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800">Résumé (PDF)</a>
+        </div>
+      </div>
+      <div class="relative">
+        <div class="aspect-[4/3] rounded-3xl overflow-hidden shadow-soft border border-slate-200 dark:border-slate-800">
+          <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1470&auto=format&fit=crop" alt="AI Infrastructure" class="w-full h-full object-cover"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="max-w-6xl mx-auto px-4 py-16">
+    <h2 class="text-2xl sm:text-3xl font-bold">About</h2>
+    <p class="mt-4 text-slate-600 dark:text-slate-300 max-w-3xl">
+      Graduate Research Assistant at GWU with expertise in multi‑accelerator AI systems, compiler optimization, and reinforcement learning. I co‑authored <strong>STARDUST</strong>, a topology‑aware RL framework that improved inference throughput by 26.1% and reduced training sample needs 15×. I am passionate about systems‑level ML, distributed infrastructure, and backend reliability.
+    </p>
+    <ul class="mt-6 grid sm:grid-cols-2 gap-3 text-sm text-slate-600 dark:text-slate-300">
+      <li>🎓 M.S. Computer Engineering, George Washington University (2023–2025)</li>
+      <li>🎓 B.S. Electrical Engineering, Tianjin University of Technology and Education (2019–2023)</li>
+      <li>🏅 Associate Member, Sigma Xi (since July 2025)</li>
+      <li>✉️ <a href="mailto:hayes.zhao09@gmail.com" class="underline hover:text-sky-600">hayes.zhao09@gmail.com</a></li>
+    </ul>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience" class="max-w-6xl mx-auto px-4 py-16">
+    <h2 class="text-2xl sm:text-3xl font-bold">Experience</h2>
+    <div class="mt-6 space-y-6">
+      <div class="rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-soft">
+        <h3 class="font-semibold">Graduate Research Assistant — George Washington University</h3>
+        <p class="text-xs text-slate-500">Mar. 2024 – Sep. 2024 | Washington, DC</p>
+        <ul class="list-disc pl-5 mt-2 space-y-1 text-sm text-slate-600 dark:text-slate-300">
+          <li>Accelerated inference throughput by 26.1% using a topology‑aware RL framework with hybrid GNN‑Transformer architecture.</li>
+          <li>Optimized a custom C++ compiler for partitioning and deploying 30+ large‑scale DL models (LLM, CV, MoE) across heterogeneous accelerators.</li>
+          <li>Co‑first‑authored <em>STARDUST</em> (IEEE CAL), reducing training sample needs 15× compared to baselines.</li>
+          <li>Developed two‑stage optimization: 90% graph reduction via Deep Modularity Network clustering, followed by PPO‑based RL mapping.</li>
+        </ul>
+      </div>
+      <div class="rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-soft">
+        <h3 class="font-semibold">Software Engineer Intern — DHC Software</h3>
+        <p class="text-xs text-slate-500">Jul. 2022 – Dec. 2022 | Beijing, China</p>
+        <ul class="list-disc pl-5 mt-2 space-y-1 text-sm text-slate-600 dark:text-slate-300">
+          <li>Scaled backend throughput 100× with Redis caching and RocketMQ messaging during high‑traffic events.</li>
+          <li>Refactored monolith to Java Spring microservices (DDD‑based), reducing system complexity and costs.</li>
+          <li>Ensured reliability with distributed locking (TCC) and rollback protocols.</li>
+          <li>Implemented rate‑limiting and abuse prevention to safeguard services under load.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="max-w-6xl mx-auto px-4 py-16">
+    <h2 class="text-2xl sm:text-3xl font-bold">Projects</h2>
+    <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="rounded-2xl border border-slate-200 dark:border-slate-800 p-5 shadow-soft">
+        <h3 class="font-semibold">Distributed Key‑Value Store</h3>
+        <ul class="mt-2 list-disc pl-5 text-sm text-slate-600 dark:text-slate-300 space-y-1">
+          <li>99.9% availability, 1M QPS via consistent hashing and Raft‑based consensus.</li>
+          <li>42% read latency reduction through async Apply, ReadIndex, FollowerRead.</li>
+          <li>Optimized with RocksDB, B+ trees, hash tables, and MVCC concurrency control.</li>
+        </ul>
+      </div>
+      <div class="rounded-2xl border border-slate-200 dark:border-slate-800 p-5 shadow-soft">
+        <h3 class="font-semibold">Kaggle: H&M Personalized Fashion (Silver Medal)</h3>
+        <ul class="mt-2 list-disc pl-5 text-sm text-slate-600 dark:text-slate-300 space-y-1">
+          <li>Ranked 75/3759 with MAP@12 improvement of 3–5%.</li>
+          <li>Designed multi‑stage ranking: two‑tower candidate gen + LightGBM ensemble.</li>
+          <li>Engineered temporal features and negative sampling for robustness.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Publications -->
+  <section id="publications" class="max-w-6xl mx-auto px-4 py-16">
+    <h2 class="text-2xl sm:text-3xl font-bold">Publications</h2>
+    <div class="mt-6 space-y-4">
+      <div class="rounded-2xl border border-slate-200 dark:border-slate-800 p-5 shadow-soft">
+        <p><strong>STARDUST</strong>: Reinforcement‑Learning‑Based Mapping for Multi‑Accelerator Clusters. <em>IEEE Computer Architecture Letters</em>, 2025. <a href="https://www.computer.org/csdl/journal/ca/5555/01/11039063/27CO2It6Sv6" class="underline hover:text-sky-600">DOI</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="max-w-6xl mx-auto px-4 py-16">
+    <div class="rounded-3xl border border-slate-200 dark:border-slate-800 p-6 lg:p-10 shadow-soft">
+      <h2 class="text-2xl sm:text-3xl font-bold">Get in touch</h2>
+      <p class="mt-4 text-slate-600 dark:text-slate-300">Feel free to connect for collaborations, career opportunities, or technical discussions in AI infrastructure and systems ML.</p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="mailto:hayes.zhao09@gmail.com" class="px-4 py-2 rounded-xl bg-sky-600 text-white hover:bg-sky-700 shadow-soft">Email</a>
+        <a href="https://www.linkedin.com/in/hayes-zhao" target="_blank" class="px-4 py-2 rounded-xl border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800">LinkedIn</a>
+        <a href="resume_HZ.pdf" target="_blank" class="px-4 py-2 rounded-xl border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800">Résumé (PDF)</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-10 border-t border-slate-200 dark:border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 text-sm text-slate-500 flex flex-wrap items-center justify-between gap-4">
+      <p>© <span id="year"></span> Hayes Zhao. All rights reserved.</p>
+      <a href="#" class="hover:text-sky-600">Back to top ↑</a>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
