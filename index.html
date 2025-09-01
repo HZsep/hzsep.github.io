@@ -9,24 +9,25 @@
   <meta property="og:description" content="Computer Engineer & Researcher in AI infrastructure and distributed systems." />
   <meta property="og:type" content="website" />
   <meta name="theme-color" content="#0ea5e9" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ["Inter","ui-sans-serif","system-ui","-apple-system","Segoe UI","Roboto","Noto Sans","Helvetica Neue","Arial","sans-serif"]
-          },
-          boxShadow: { soft: "0 10px 30px -12px rgb(0 0 0 / 0.25)" }
-        }
-      },
-      darkMode: 'class'
-    }
-  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>html{scroll-behavior:smooth}.u-underline{box-shadow:inset 0 -0.5em 0 rgba(14,165,233,.25)}</style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: { fontFamily: { sans: ["Inter","ui-sans-serif","system-ui","-apple-system","Segoe UI","Roboto","Noto Sans","Helvetica Neue","Arial","sans-serif"] }, boxShadow: { soft: "0 10px 30px -12px rgb(0 0 0 / 0.25)" } } }, darkMode:'class' };
+  </script>
+  <style>
+    html{scroll-behavior:smooth}
+    .u-underline{box-shadow:inset 0 -0.5em 0 rgba(14,165,233,.25)}
+    /* Geometric grid background */
+    .grid-bg { background-image: linear-gradient(to right, rgba(14,165,233,0.10) 1px, transparent 1px), linear-gradient(to bottom, rgba(14,165,233,0.10) 1px, transparent 1px); background-size:40px 40px; }
+    /* Subtle animated drift */
+    .grid-anim { animation: grid-drift 18s linear infinite; background-attachment: fixed; }
+    @keyframes grid-drift { 0%{background-position:0 0,0 0} 50%{background-position:20px 12px,12px 20px} 100%{background-position:0 0,0 0} }
+    /* Particle layer */
+    .bg-particles{position:absolute;inset:0;pointer-events:none;opacity:.6}
+    .dark .bg-particles{opacity:.5}
+  </style>
 </head>
 <body class="font-sans bg-white text-slate-800 dark:bg-slate-900 dark:text-slate-100">
   <!-- Header -->
@@ -51,26 +52,21 @@
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="relative">
-    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-sky-50 to-transparent dark:from-sky-900/10"></div>
-    <div class="max-w-6xl mx-auto px-4 py-16 lg:py-24 grid lg:grid-cols-2 gap-10 items-center">
+  <!-- Hero with animated geometric grid + particle layer -->
+  <section class="relative grid-bg grid-anim">
+    <canvas id="bgDots" class="bg-particles z-0"></canvas>
+    <div class="max-w-6xl mx-auto px-4 py-16 lg:py-24 grid lg:grid-cols-1 gap-10 items-center relative z-10">
       <div>
         <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight">
           Building scalable <span class="u-underline">AI infrastructure</span><br class="hidden sm:block"/> for real‑world performance
         </h1>
-        <p class="mt-5 text-slate-600 dark:text-slate-300 text-base sm:text-lg max-w-xl">
-          I’m <strong>Hayes Zhao</strong>, a Computer Engineer (M.S., George Washington University) with a proven record in accelerating distributed systems, optimizing heterogeneous multi‑accelerator workloads mapping, and AI infra.
+        <p class="mt-5 text-slate-600 dark:text-slate-300 text-base sm:text-lg max-w-2xl">
+          I’m <strong>Hayes Zhao</strong>, a Computer Engineer (M.S., George Washington University) with a proven record in accelerating distributed systems, optimizing heterogeneous multi‑accelerator workloads, and publishing research in IEEE CAL.
         </p>
         <div class="mt-6 flex flex-wrap gap-3">
           <a href="#experience" class="px-4 py-2 rounded-xl bg-sky-600 text-white hover:bg-sky-700 shadow-soft">Experience</a>
           <a href="https://www.linkedin.com/in/hayes-zhao" target="_blank" class="px-4 py-2 rounded-xl border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800">LinkedIn</a>
           <a href="resume_HZ.pdf" target="_blank" class="px-4 py-2 rounded-xl border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800">Résumé (PDF)</a>
-        </div>
-      </div>
-      <div class="relative">
-        <div class="aspect-[4/3] rounded-3xl overflow-hidden shadow-soft border border-slate-200 dark:border-slate-800">
-          <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1470&auto=format&fit=crop" alt="AI Infrastructure" class="w-full h-full object-cover"/>
         </div>
       </div>
     </div>
@@ -80,7 +76,7 @@
   <section id="about" class="max-w-6xl mx-auto px-4 py-16">
     <h2 class="text-2xl sm:text-3xl font-bold">About</h2>
     <p class="mt-4 text-slate-600 dark:text-slate-300 max-w-3xl">
-      Graduate Research Assistant at GWU with expertise in multi‑accelerator AI systems, compiler optimization, and reinforcement learning. I am passionate about systems‑level ML, distributed infrastructure, and backend reliability.
+      Graduate Research Assistant at GWU with expertise in multi‑accelerator AI systems, compiler optimization, and reinforcement learning. I co‑authored <strong>STARDUST</strong>, a topology‑aware RL framework that improved inference throughput by 26.1% and reduced training sample needs 15×. I am passionate about systems‑level ML, distributed infrastructure, and backend reliability.
     </p>
     <ul class="mt-6 grid sm:grid-cols-2 gap-3 text-sm text-slate-600 dark:text-slate-300">
       <li>🎓 M.S. Computer Engineering, George Washington University (2023–2025)</li>
@@ -117,27 +113,150 @@
     </div>
   </section>
 
-  <!-- Projects -->
-  <section id="projects" class="max-w-6xl mx-auto px-4 py-16">
+  <!-- Projects (merged with your latest canvas content) -->
+  <section id="projects" class="max-w-6xl mx-auto px-4 py-16 relative overflow-hidden">
+    <!-- animated particles background from your snippet -->
+    <div class="absolute inset-0 -z-10">
+      <canvas id="particles" class="w-full h-full"></canvas>
+    </div>
     <h2 class="text-2xl sm:text-3xl font-bold">Projects</h2>
-    <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div class="rounded-2xl border border-slate-200 dark:border-slate-800 p-5 shadow-soft">
-        <h3 class="font-semibold">Distributed Key‑Value Store</h3>
-        <ul class="mt-2 list-disc pl-5 text-sm text-slate-600 dark:text-slate-300 space-y-1">
-          <li>99.9% availability, 1M QPS via consistent hashing and Raft‑based consensus.</li>
-          <li>42% read latency reduction through async Apply, ReadIndex, FollowerRead.</li>
-          <li>Optimized with RocksDB, B+ trees, hash tables, and MVCC concurrency control.</li>
+    <div class="mt-6 space-y-6">
+      <!-- Distributed Key-Value Storage System -->
+      <div class="rounded-2xl border border-slate-200 dark:border-slate-800 p-5 bg-white/70 dark:bg-slate-900/60 transition-transform duration-200 hover:-translate-y-1 hover:shadow-xl">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl grid place-items-center bg-sky-100 dark:bg-sky-900/40">🗂️</div>
+          <h3 class="font-semibold">Distributed Key-Value Storage System <span class="text-slate-500 text-sm font-normal">(Jun 2024 – Sep 2024)</span></h3>
+        </div>
+        <ul class="mt-3 list-disc pl-5 text-sm space-y-1 text-slate-600 dark:text-slate-300">
+          <li>Achieved 99.9% availability and 1M QPS with consistent hashing across shards.</li>
+          <li>Reduced read latency by 42% with async Apply, ReadIndex, and FollowerRead.</li>
+          <li>Designed robust data migration for dynamic load balancing with Raft Groups.</li>
+          <li>Optimized storage with RocksDB, B+ trees, hash tables, and MVCC concurrency control.</li>
+          <li>Implemented advanced features using Rust, C, and Ruby for distributed systems.</li>
         </ul>
+        <div class="mt-3 text-xs">
+          <span class="inline-block px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 mr-2 mb-1">Kubernetes</span>
+          <span class="inline-block px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 mr-2 mb-1">C++</span>
+          <span class="inline-block px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 mr-2 mb-1">Java</span>
+          <span class="inline-block px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 mr-2 mb-1">RocksDB</span>
+          <span class="inline-block px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 mr-2 mb-1">Rust</span>
+          <span class="inline-block px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 mr-2 mb-1">Distributed Systems</span>
+          <span class="inline-block px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 mr-2 mb-1">React.js</span>
+          <span class="inline-block px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 mr-2 mb-1">Docker</span>
+        </div>
       </div>
-      <div class="rounded-2xl border border-slate-200 dark:border-slate-800 p-5 shadow-soft">
-        <h3 class="font-semibold">Kaggle: H&M Personalized Fashion (Silver Medal)</h3>
-        <ul class="mt-2 list-disc pl-5 text-sm text-slate-600 dark:text-slate-300 space-y-1">
-          <li>Ranked 75/3759 with MAP@12 improvement of 3–5%.</li>
-          <li>Designed multi‑stage ranking: two‑tower candidate gen + LightGBM ensemble.</li>
-          <li>Engineered temporal features and negative sampling for robustness.</li>
+
+      <!-- GAN for Synthetic Data -->
+      <div class="rounded-2xl border border-slate-200 dark:border-slate-800 p-5 bg-white/70 dark:bg-slate-900/60 transition-transform duration-200 hover:-translate-y-1 hover:shadow-xl">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl grid place-items-center bg-violet-100 dark:bg-violet-900/40">🧬</div>
+          <h3 class="font-semibold">GAN for High-Accuracy Synthetic Data Generation <span class="text-slate-500 text-sm font-normal">(Jan 2024 – May 2024)</span></h3>
+        </div>
+        <ul class="mt-3 list-disc pl-5 text-sm space-y-1 text-slate-600 dark:text-slate-300">
+          <li>Engineered Python-based GAN framework to synthesize high-fidelity fault data.</li>
+          <li>20+ conditional fault patterns; ~35% accuracy gain vs. conventional augmentation.</li>
+          <li>Custom loss (adversarial + statistical) for ~30% faster convergence.</li>
+          <li>Residual & topology-aware nets; ~40% train compute reduction.</li>
+          <li>YAML-configured orchestration; easy pipeline integration.</li>
         </ul>
+        <div class="mt-3 text-xs">
+          <span class="inline-block px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 mr-2 mb-1">GANs</span>
+          <span class="inline-block px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 mr-2 mb-1">PyTorch</span>
+          <span class="inline-block px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 mr-2 mb-1">CUDA</span>
+          <span class="inline-block px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 mr-2 mb-1">Python</span>
+          <span class="inline-block px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 mr-2 mb-1">PyCharm</span>
+        </div>
+      </div>
+
+      <!-- Real-time Messaging System -->
+      <div class="rounded-2xl border border-slate-200 dark:border-slate-800 p-5 bg-white/70 dark:bg-slate-900/60 transition-transform duration-200 hover:-translate-y-1 hover:shadow-xl">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl grid place-items-center bg-emerald-100 dark:bg-emerald-900/40">💬</div>
+          <h3 class="font-semibold">Real-time Messaging System <span class="text-slate-500 text-sm font-normal">(Jan 2024 – May 2024)</span></h3>
+        </div>
+        <ul class="mt-3 list-disc pl-5 text-sm space-y-1 text-slate-600 dark:text-slate-300">
+          <li>Spring Cloud + Netty + WebSocket for rich media messaging.</li>
+          <li>RabbitMQ broadcasting, DynamoDB retrieval, Zookeeper registry.</li>
+          <li>Redis session optimizations; CloudFront CDN; Jedis pools.</li>
+          <li>Elasticsearch geo search + Ray for distributed processing.</li>
+          <li>Nginx + OkHttp + OpenFeign for horizontal scaling.</li>
+        </ul>
+        <div class="mt-3 text-xs">
+          <span class="inline-block px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 mr-2 mb-1">DynamoDB</span>
+          <span class="inline-block px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 mr-2 mb-1">Spring</span>
+          <span class="inline-block px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 mr-2 mb-1">Netty</span>
+          <span class="inline-block px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 mr-2 mb-1">Spring Cloud</span>
+          <span class="inline-block px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 mr-2 mb-1">WebSocket</span>
+        </div>
+      </div>
+
+      <!-- Kaggle Feedback Prize -->
+      <div class="rounded-2xl border border-slate-200 dark:border-slate-800 p-5 bg-white/70 dark:bg-slate-900/60 transition-transform duration-200 hover:-translate-y-1 hover:shadow-xl">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl grid place-items-center bg-amber-100 dark:bg-amber-900/40">📚</div>
+          <h3 class="font-semibold">[Kaggle] Feedback Prize – Predicting Effective Arguments <span class="text-slate-500 text-sm font-normal">(Jan 2022 – Sep 2022)</span></h3>
+        </div>
+        <ul class="mt-3 list-disc pl-5 text-sm space-y-1 text-slate-600 dark:text-slate-300">
+          <li>DeBERTa‑v3 token classifier with discourse features, 58.2% accuracy.</li>
+          <li>Weighted‑layer pooling; AWP + SWA for robustness.</li>
+          <li>HuggingFace Datasets + PyTorch preprocessing pipeline.</li>
+          <li>Grad accumulation, AMP, CosineAnnealing schedule.</li>
+          <li>Ranked 42/2000+ (Top 3%, Silver Medal).</li>
+        </ul>
+        <div class="mt-3 text-xs">
+          <span class="inline-block px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 mr-2 mb-1">Python</span>
+          <span class="inline-block px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 mr-2 mb-1">BERT</span>
+          <span class="inline-block px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 mr-2 mb-1">HuggingFace</span>
+          <span class="inline-block px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 mr-2 mb-1">PyTorch</span>
+          <span class="inline-block px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 mr-2 mb-1">NLP</span>
+        </div>
+      </div>
+
+      <!-- Kaggle H&M -->
+      <div class="rounded-2xl border border-slate-200 dark:border-slate-800 p-5 bg-white/70 dark:bg-slate-900/60 transition-transform duration-200 hover:-translate-y-1 hover:shadow-xl">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl grid place-items-center bg-rose-100 dark:bg-rose-900/40">🛒</div>
+          <h3 class="font-semibold">[Kaggle] H&M Personalized Fashion Recommendations <span class="text-slate-500 text-sm font-normal">(Feb 2022 – May 2022)</span></h3>
+        </div>
+        <ul class="mt-3 list-disc pl-5 text-sm space-y-1 text-slate-600 dark:text-slate-300">
+          <li>75/3759 (Silver). Two‑tower (BPR) + LightGBM ranking ensemble.</li>
+          <li>Temporal features across multi windows; time‑aware validation.</li>
+          <li>MAP@12 improved by 3–5% via ensemble.</li>
+        </ul>
+        <div class="mt-3 text-xs">
+          <span class="inline-block px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 mr-2 mb-1">TensorFlow Recommenders</span>
+          <span class="inline-block px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 mr-2 mb-1">LightGBM</span>
+          <span class="inline-block px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 mr-2 mb-1">Recommender Systems</span>
+          <span class="inline-block px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700 mr-2 mb-1">Python</span>
+        </div>
       </div>
     </div>
+    <script>
+      // Keep your particles snippet for the Projects section
+      const canvas = document.getElementById('particles');
+      if(canvas){
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        const num = 60;
+        function resize(){canvas.width = canvas.offsetWidth;canvas.height = canvas.offsetHeight;}
+        window.addEventListener('resize', resize);resize();
+        for(let i=0;i<num;i++){
+          particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*2+1,dx:(Math.random()-0.5)*0.5,dy:(Math.random()-0.5)*0.5});
+        }
+        function animate(){
+          ctx.clearRect(0,0,canvas.width,canvas.height);
+          for(const p of particles){
+            ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+            ctx.fillStyle='rgba(14,165,233,0.4)';ctx.fill();
+            p.x+=p.dx;p.y+=p.dy;
+            if(p.x<0||p.x>canvas.width) p.dx*=-1;
+            if(p.y<0||p.y>canvas.height) p.dy*=-1;
+          }
+          requestAnimationFrame(animate);
+        }
+        animate();
+      }
+    </script>
   </section>
 
   <!-- Publications -->
@@ -145,7 +264,7 @@
     <h2 class="text-2xl sm:text-3xl font-bold">Publications</h2>
     <div class="mt-6 space-y-4">
       <div class="rounded-2xl border border-slate-200 dark:border-slate-800 p-5 shadow-soft">
-        <p><strong>STARDUST</strong>:Scalable and Transferable Workload Mapping for Large AI on Multi-Chiplet Systems. <em>IEEE Computer Architecture Letters</em>, 2025. <a href="https://www.computer.org/csdl/journal/ca/5555/01/11039063/27CO2It6Sv6" class="underline hover:text-sky-600">DOI</a></p>
+        <p><strong>STARDUST</strong>: Reinforcement‑Learning‑Based Mapping for Multi‑Accelerator Clusters. <em>IEEE Computer Architecture Letters</em>, 2025. <a href="https://www.computer.org/csdl/journal/ca/5555/01/11039063/27CO2It6Sv6" class="underline hover:text-sky-600">DOI</a></p>
       </div>
     </div>
   </section>
@@ -170,6 +289,40 @@
       <a href="#" class="hover:text-sky-600">Back to top ↑</a>
     </div>
   </footer>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+  <!-- Animated dots in Hero (reduced motion aware) -->
+  <script>
+    (function(){
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const canvas = document.getElementById('bgDots');
+      if(!canvas || prefersReduced) return;
+      const ctx = canvas.getContext('2d');
+      let dpr = Math.min(window.devicePixelRatio || 1, 2);
+      let W = 0, H = 0, dots = [], last = 0, hueLight = 'rgba(14,165,233,0.28)', hueDark = 'rgba(56,189,248,0.20)';
+      const isDark = () => document.documentElement.classList.contains('dark');
+      function resize(){
+        const rect = canvas.getBoundingClientRect();
+        W = Math.floor(rect.width * dpr); H = Math.floor(rect.height * dpr);
+        canvas.width = W; canvas.height = H; canvas.style.width = rect.width+'px'; canvas.style.height = rect.height+'px';
+        const density = Math.max(40, Math.min(90, Math.round((rect.width*rect.height)/18000)));
+        dots = Array.from({length: density}, ()=> newDot());
+      }
+      function newDot(){ return { x: Math.random()*W, y: Math.random()*H, r: (Math.random()*1.2 + 0.4)*dpr, vx: (Math.random()*0.2 - 0.1)*dpr, vy: (Math.random()*0.2 - 0.1)*dpr, phase: Math.random()*Math.PI*2 }; }
+      function step(ts){
+        if(ts - last < 33){ requestAnimationFrame(step); return; }
+        last = ts; ctx.clearRect(0,0,W,H);
+        ctx.fillStyle = isDark()? hueDark : hueLight;
+        for(const d of dots){
+          d.phase += 0.015; d.x += d.vx + Math.sin(d.phase)*0.05*dpr; d.y += d.vy + Math.cos(d.phase)*0.05*dpr;
+          if(d.x < -5 || d.x > W+5 || d.y < -5 || d.y > H+5){ Object.assign(d, newDot()); }
+          ctx.beginPath(); ctx.arc(d.x, d.y, d.r, 0, Math.PI*2); ctx.fill();
+        }
+        requestAnimationFrame(step);
+      }
+      window.addEventListener('resize', ()=>{ dpr = Math.min(window.devicePixelRatio||1, 2); resize(); });
+      resize(); requestAnimationFrame(step);
+    })();
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
